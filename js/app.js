@@ -460,18 +460,18 @@ if (window.location.pathname === '/html/gerir.html' || window.location.pathname 
         const saidasButton = document.getElementById('saidas');
         const entradasButton = document.getElementById('entradas');
     
-          saidasButton.addEventListener('click', () => {
-            saidasButton.classList.add('selected');
-            entradasButton.classList.remove('selected');
-            window.location.href = "/html/gerir.html";
-          });
+        saidasButton.addEventListener('click', () => {
+          saidasButton.classList.add('selected');
+          entradasButton.classList.remove('selected');
+          window.location.href = "/html/gerir.html";
+        });
     
-          entradasButton.addEventListener('click', () => {
-            entradasButton.classList.add('selected');
-            saidasButton.classList.remove('selected');
-            window.location.href = "/html/gerir-2.html";
-          });
-        };
+        entradasButton.addEventListener('click', () => {
+          entradasButton.classList.add('selected');
+          saidasButton.classList.remove('selected');
+          window.location.href = "/html/gerir-2.html";
+        });
+      }
     
       const expenses = await getUserExpenses(currentUserID);
       expenses.sort((a, b) => new Date(b.data) - new Date(a.data));
@@ -484,7 +484,7 @@ if (window.location.pathname === '/html/gerir.html' || window.location.pathname 
         if (window.location.pathname === '/html/gerir.html') {
           const dateP = document.createElement('p');
           dateP.classList.add('date');
-          dateP.textContent = expense.data;
+          dateP.textContent = convertDateFormat(expense.data);
           expenseItem.appendChild(dateP);
         }
   
@@ -546,7 +546,8 @@ if (window.location.pathname === '/html/gerir.html' || window.location.pathname 
       console.error("Error displaying expenses:", error);
     }
   });  
-}
+}   
+
 //chart
 function prepareChartData(expenses) {
   const categories = {};
@@ -1038,7 +1039,7 @@ if (window.location.pathname === '/html/gerir-2.html') {
         if (window.location.pathname === '/html/gerir-2.html') {
           const dateP = document.createElement('p');
           dateP.classList.add('date');
-          dateP.textContent = entries.data;
+          dateP.textContent = convertDateFormat(entries.data);
           entriesItem.appendChild(dateP);
         }
   
@@ -1325,7 +1326,7 @@ document.addEventListener('DOMContentLoaded', () => {
   spinner.style.display = 'flex';
 });
 
-//data
+//data convert
 function convertDateFormat(dateString) {
   const [year, month, day] = dateString.split('-');
   return `${day}-${month}-${year}`;
