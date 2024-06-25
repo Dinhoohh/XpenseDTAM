@@ -833,7 +833,7 @@ async function displayUserGoals(currentUserID) {
             </div>
           </div>
           <div class="row">
-                    <h5 style="margin-bottom: 100px; text-align: center; margin-top: 20px;" class="card-title">Está quase pronto para partir o mealheiro!</h5>
+                    <h5 style="margin-bottom: 100px; text-align: center; margin-top: 20px;" class="card-title">Estás quase pronto para partir o mealheiro!</h5>
           </div>
         `;
         
