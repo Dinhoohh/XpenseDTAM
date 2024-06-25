@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="icon" type="image/x-icon" href="../imgs/XPENSE_logo.svg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="manifest" href="../js/manifest.json">
+</head>
+<body id="home">
+    <div id="spinner" class="spinner">
+        <div class="spinner-inner">
+            <div class="spinner-circle"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="pattern">
+            <div class="row align-items-center">
+                <div class="col">
+                    <a href="account.html">
+                        <div class="go-back"><img style="margin: 0; width: 40px; height: 40px;" id="user-profile-pic" alt="profile"></div>
+                    </a>
+                </div>
+                    <div class="col">
+                        <div class="notifications d-flex">
+                            <svg width="23" height="25" viewBox="0 0 23 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10.9375 25C12.6621 25 14.0611 23.6011 14.0611 21.875H7.814C7.814 23.6011 9.21292 25 10.9375 25ZM21.4546 17.6899C20.5113 16.6763 18.7461 15.1514 18.7461 10.1562C18.7461 6.3623 16.086 3.3252 12.4991 2.58008V1.5625C12.4991 0.699707 11.7998 0 10.9375 0C10.0752 0 9.37601 0.699707 9.37601 1.5625V2.58008C5.7891 3.3252 3.12894 6.3623 3.12894 10.1562C3.12894 15.1514 1.3638 16.6763 0.420444 17.6899C0.127475 18.0049 -0.00240765 18.3813 3.37592e-05 18.75C0.00540485 19.5508 0.633823 20.3125 1.56742 20.3125H20.3077C21.2412 20.3125 21.8702 19.5508 21.875 18.75C21.8775 18.3813 21.7476 18.0044 21.4546 17.6899Z" fill="white"/>
+                            <circle cx="19" cy="4" r="4" fill="#00FF00"/>
+                            </svg>
+                        </div>
+                    </div>
+            </div>
+            <div class="row"></div>
+            <div class="container my-4">
+                <div id="carouselExampleDark" class="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="10000">
+                            <div style="min-height: 140px;">
+                                <div class="carousel-caption d-block">
+                                    <p class="grey-12">Saldo mensal disponível</p>
+                                    <h5 id="monthly-balance">€</h5>
+                                </div>                            
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2000">
+                            <div style="min-height: 140px;">
+                                <div class="carousel-caption d-block">
+                                    <p class="grey-12">Saldo total disponível</p>
+                                    <h5 id="total-balance">€</h5>
+                                </div>                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <a href="changebalance.html">
+                        <svg width="29" height="40" viewBox="0 0 29 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M27.7629 34.0862C27.6454 33.4942 27.0628 33.1154 26.474 33.2496C25.5186 33.4674 24.0237 33.7329 22.415 33.7329C17.343 33.7329 13.3072 30.6267 11.562 26.1036H21.7206C21.9641 26.1036 22.2004 26.0207 22.3905 25.8687C22.5806 25.7167 22.7133 25.5045 22.7667 25.2671L23.3362 22.7349C23.4868 22.0651 22.9771 21.4286 22.29 21.4286H10.2954C10.1873 20.1493 10.169 18.9029 10.3076 17.6567H23.4063C23.6509 17.6567 23.8881 17.5732 24.0786 17.42C24.2691 17.2668 24.4015 17.0531 24.4538 16.8144L25.0357 14.1577C25.182 13.4895 24.6728 12.8571 23.9882 12.8571H11.6325C13.4761 8.84009 17.2341 6.15804 22.1422 6.15804C23.4366 6.15804 24.6945 6.35893 25.5244 6.52812C26.0798 6.64134 26.6276 6.30509 26.7755 5.75821L27.8469 1.79679C28.0097 1.19491 27.6267 0.581071 27.0136 0.464911C25.9321 0.26 24.189 0 22.3059 0C13.6221 0 6.61488 5.37964 4.02764 12.8571H1.07225C0.4801 12.8571 0 13.3369 0 13.9286V16.5853C0 17.177 0.4801 17.6567 1.07225 17.6567H2.99953C2.90937 18.8716 2.894 20.2716 2.98335 21.4286H1.07225C0.4801 21.4286 0 21.9083 0 22.5V25.0321C0 25.6238 0.4801 26.1036 1.07225 26.1036H3.76306C5.99915 34.1689 12.9799 40 22.3059 40C24.656 40 26.6451 39.5943 27.7655 39.3046C28.3166 39.1622 28.6615 38.6164 28.5508 38.0585L27.7629 34.0862Z" fill="#00FF00"/>
+                        </svg>     
+                    </a>               
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <a href="add-expense.html">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M37.1429 15.7143H24.2857V2.85714C24.2857 1.27946 23.0063 0 21.4286 0H18.5714C16.9937 0 15.7143 1.27946 15.7143 2.85714V15.7143H2.85714C1.27946 15.7143 0 16.9937 0 18.5714V21.4286C0 23.0063 1.27946 24.2857 2.85714 24.2857H15.7143V37.1429C15.7143 38.7205 16.9937 40 18.5714 40H21.4286C23.0063 40 24.2857 38.7205 24.2857 37.1429V24.2857H37.1429C38.7205 24.2857 40 23.0063 40 21.4286V18.5714C40 16.9937 38.7205 15.7143 37.1429 15.7143Z" fill="#00FF00"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <a href="budget.html">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M40 20C40 23.9556 38.827 27.8224 36.6294 31.1114C34.4318 34.4004 31.3082 36.9638 27.6537 38.4776C23.9991 39.9913 19.9778 40.3874 16.0982 39.6157C12.2186 38.844 8.65491 36.9392 5.85786 34.1421C3.06081 31.3451 1.156 27.7814 0.384294 23.9018C-0.38741 20.0222 0.00865672 16.0009 1.52241 12.3463C3.03616 8.69181 5.59961 5.56824 8.8886 3.37061C12.1776 1.17298 16.0444 -4.71704e-08 20 0V20H40Z" fill="#00FF00"/>
+                            <path d="M40 20C40 17.3736 39.4827 14.7728 38.4776 12.3463C37.4725 9.91982 35.9993 7.71504 34.1421 5.85786C32.285 4.00069 30.0802 2.5275 27.6537 1.52241C25.2272 0.517315 22.6264 -1.14805e-07 20 0V2.77516C22.262 2.77516 24.5018 3.22069 26.5917 4.08632C28.6815 4.95195 30.5803 6.22072 32.1798 7.8202C33.7793 9.41967 35.048 11.3185 35.9137 13.4083C36.7793 15.4982 37.2248 17.738 37.2248 20H40Z" fill="#00FF00"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <p class="action-txt">Definir saldo</p>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <p class="action-txt">Adicionar despesa</p>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <p class="action-txt">Budget</p>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 40px;" class="row d-flex justify-content-center">
+            <div class="card mb-3" style="max-width: 540px; color:#232323 !important;">
+                <div class="row g-0">
+                  <div class="col-9">
+                    <div style="text-align: end; padding: 0;" class="card-body">
+                      <h5 style="text-align: start; margin-top: 12px; margin-left: 8px;" class="card-title"><span class="green">25%</span> desconto NOS Alive</h5>
+                      <p style="text-align: start; margin-top: 8px; margin-left: 8px;" class="card-text">Aproveita para ires ao festival que estavas à espera. Sabe mais na aba Ofertas.</p>
+                      <a style="margin-right: 8px;" class="grey-12"><span class="green">Receber oferta</span></a>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <img style="min-height: 127px;" src="../imgs/nosalive.jpeg" class="img-fluid rounded-end" alt="...">
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class="row">
+            <h1 style="margin-top: 40px;" class="headers">Despesas</h1>
+            <div class="chart-container">
+                <canvas id="myChart"></canvas>
+                <div id="total-expenses" class="chart-text">
+                    <div class="chart-subtext">Gastos este mês</div>
+                </div>
+            </div>
+            <div class="container grey-background">
+                <div style="margin-left: 8px; margin-right: 8px;" id="expense-list"></div>
+            </div>
+            <div style="margin-top: 20px;" class="row d-flex justify-content-center">
+                <a class="vertudo" href="gerir.html">Ver tudo</a>
+            </div>
+        </div>
+        <div class="row" id="goals-container">
+            <div class="card text-bg-dark">
+              <img src="" class="card-img" alt="Imagem poupança" id="goal-image">
+              <div class="card-img-overlay">
+                <h5 class="savings-title" id="goal-name"></h5>
+                <p class="card-text" id="goal-progress"><small></small></p>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="menu">
+        <div class="menu-item active">
+            <a href="home.html">
+                <svg width="32" height="26" viewBox="0 0 32 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.5757 6.74508L5.33376 15.5588V25.0713C5.33376 25.3176 5.4274 25.5538 5.59408 25.728C5.76077 25.9022 5.98685 26 6.22258 26L12.4477 25.9832C12.6826 25.9819 12.9075 25.8836 13.0733 25.7095C13.239 25.5355 13.332 25.3 13.332 25.0545V19.4993C13.332 19.253 13.4257 19.0168 13.5924 18.8426C13.759 18.6684 13.9851 18.5706 14.2208 18.5706H17.7761C18.0119 18.5706 18.2379 18.6684 18.4046 18.8426C18.5713 19.0168 18.665 19.253 18.665 19.4993V25.0504C18.6646 25.1726 18.6873 25.2937 18.7318 25.4067C18.7763 25.5197 18.8417 25.6224 18.9243 25.709C19.0069 25.7955 19.105 25.8642 19.213 25.911C19.321 25.9579 19.4368 25.982 19.5538 25.982L25.7766 26C26.0124 26 26.2384 25.9022 26.4051 25.728C26.5718 25.5538 26.6654 25.3176 26.6654 25.0713V15.5524L16.4257 6.74508C16.3053 6.6437 16.1553 6.58841 16.0007 6.58841C15.8461 6.58841 15.6961 6.6437 15.5757 6.74508ZM31.7539 12.7356L27.1099 8.73593V0.696506C27.1099 0.511781 27.0396 0.334622 26.9146 0.204002C26.7896 0.0733818 26.62 0 26.4432 0H23.3324C23.1556 0 22.986 0.0733818 22.861 0.204002C22.736 0.334622 22.6658 0.511781 22.6658 0.696506V4.91095L17.6922 0.635562C17.215 0.225192 16.616 0.000820337 15.9979 0.000820337C15.3798 0.000820337 14.7809 0.225192 14.3036 0.635562L0.241925 12.7356C0.174423 12.7939 0.118576 12.8655 0.0775751 12.9464C0.0365738 13.0272 0.0112218 13.1157 0.00296764 13.2068C-0.00528651 13.2979 0.00371897 13.3898 0.0294695 13.4773C0.0552201 13.5647 0.097211 13.646 0.153043 13.7165L1.5696 15.5158C1.62528 15.5866 1.69377 15.6452 1.77114 15.6882C1.84851 15.7312 1.93325 15.7579 2.02051 15.7667C2.10776 15.7755 2.19582 15.7662 2.27963 15.7394C2.36345 15.7126 2.44139 15.6688 2.50897 15.6104L15.5757 4.36535C15.6961 4.26397 15.8461 4.20868 16.0007 4.20868C16.1553 4.20868 16.3053 4.26397 16.4257 4.36535L29.493 15.6104C29.5605 15.6688 29.6383 15.7127 29.722 15.7396C29.8057 15.7665 29.8936 15.7759 29.9808 15.7673C30.068 15.7586 30.1527 15.7321 30.2301 15.6893C30.3075 15.6465 30.376 15.5881 30.4318 15.5176L31.8484 13.7183C31.9042 13.6474 31.946 13.5657 31.9714 13.4778C31.9969 13.39 32.0054 13.2977 31.9967 13.2064C31.9879 13.1151 31.9619 13.0265 31.9203 12.9457C31.8786 12.8649 31.8221 12.7935 31.7539 12.7356Z" fill="#00FF00"/>
+                </svg>
+            </a>    
+            <span>Home</span>
+        </div>
+        <div class="menu-item">
+            <a href="gerir.html">
+                <svg width="18" height="26" viewBox="0 0 18 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 0H5.37931V26H0V0Z" fill="#969696"/>
+                    <path d="M6.27586 8.96552H11.6552V26H6.27586V8.96552Z" fill="#969696"/>
+                    <path d="M12.5517 4.48276H17.931V26H12.5517V4.48276Z" fill="#969696"/>
+                </svg>
+            </a>    
+            <span>Gerir</span>
+        </div>
+        <div class="menu-item">
+            <a href="parati.html">
+                <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 17C0 15.8954 0.895431 15 2 15H10C11.1046 15 12 15.8954 12 17V25C12 26.1046 11.1046 27 10 27H2C0.895431 27 0 26.1046 0 25V17Z" fill="#969696"/>
+                <path d="M0 2C0 0.895431 0.895431 0 2 0H10C11.1046 0 12 0.895431 12 2V10C12 11.1046 11.1046 12 10 12H2C0.895431 12 0 11.1046 0 10V2Z" fill="#969696"/>
+                <path d="M15 17C15 15.8954 15.8954 15 17 15H25C26.1046 15 27 15.8954 27 17V25C27 26.1046 26.1046 27 25 27H17C15.8954 27 15 26.1046 15 25V17Z" fill="#969696"/>
+                <path d="M15 2C15 0.895431 15.8954 0 17 0H25C26.1046 0 27 0.895431 27 2V10C27 11.1046 26.1046 12 25 12H17C15.8954 12 15 11.1046 15 10V2Z" fill="#969696"/>
+                </svg>   
+            </a>   
+            <span>Para ti</span>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="../js/app.js"></script>
+</body>
+</html>
