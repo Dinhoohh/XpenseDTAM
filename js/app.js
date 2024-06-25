@@ -918,39 +918,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //subscriptions
 if (window.location.pathname === '/html/add-subscription.html') {
-document.addEventListener('DOMContentLoaded', () => {
-  const addSubscriptionForm = document.getElementById('add-subscription-form');
-  addSubscriptionForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
+  document.addEventListener('DOMContentLoaded', () => {
+    const addSubscriptionForm = document.getElementById('add-subscription-form');
+    addSubscriptionForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
 
-    const subscriptionValue = parseFloat(document.getElementById('subscription-value').value.replace('.', ','));
-    const subscriptionName = document.getElementById('subscription-name').value;
-    const subscriptionDate = document.getElementById('subscription-payment-date').value;
-    const subscriptionImage = document.getElementById('subscription-image').files[0];
+      const subscriptionValueInput = document.getElementById('subscription-value');
+      const subscriptionValue = parseFloat(subscriptionValueInput.value);
+      const subscriptionName = document.getElementById('subscription-name').value;
+      const subscriptionDate = document.getElementById('subscription-payment-date').value;
+      const subscriptionImage = document.getElementById('subscription-image').files[0];
 
-    try {
-      if (currentUserID) {
-        let imageUrl = '';
+      console.log(`Original subscription value: ${subscriptionValueInput.value}, Parsed: ${subscriptionValue}`);
 
-        if (subscriptionImage) {
-          const storageRef = ref(storage, `goal_images/${currentUserID}/${subscriptionImage.name}`);
-          const snapshot = await uploadBytes(storageRef, subscriptionImage);
-          imageUrl = await getDownloadURL(snapshot.ref);
-        }
-
-        await addSubscription(currentUserID, subscriptionName, subscriptionValue, subscriptionDate, imageUrl);
-        alert("Subscrição adicionada com sucesso!");
-        window.location.href = "/html/subscriptions.html";
-      } else {
-        console.error("No user is logged in.");
-        alert("Nenhum utilizador logado.");
+      // Check if the parsed value is a valid number
+      if (isNaN(subscriptionValue) || subscriptionValue <= 0) {
+        alert("Por favor, insira um valor válido para a subscrição.");
+        return;
       }
-    } catch (error) {
-      console.error("Error adding subscription:", error);
-      alert("Erro ao adicionar subscrição. Tente novamente.");
-    }
+
+      try {
+        if (currentUserID) {
+          let imageUrl = '';
+
+          if (subscriptionImage) {
+            const storageRef = ref(storage, `goal_images/${currentUserID}/${subscriptionImage.name}`);
+            const snapshot = await uploadBytes(storageRef, subscriptionImage);
+            imageUrl = await getDownloadURL(snapshot.ref);
+          }
+
+          await addSubscription(currentUserID, subscriptionName, subscriptionValue.toFixed(2), subscriptionDate, imageUrl);
+          alert("Subscrição adicionada com sucesso!");
+          window.location.href = "/html/subscriptions.html";
+        } else {
+          console.error("No user is logged in.");
+          alert("Nenhum utilizador logado.");
+        }
+      } catch (error) {
+        console.error("Error adding subscription:", error);
+        alert("Erro ao adicionar subscrição. Tente novamente.");
+      }
+    });
   });
-});
 }
 
 //adicionar entrada
@@ -1297,7 +1306,13 @@ async function displayUserSubscriptions(userId) {
         const subscriptionItem = document.createElement('div');
         subscriptionItem.classList.add('row', 'grey-background', 'align-items-center');
         subscriptionItem.style.marginBottom = '20px';
+        subscriptionItem.style.marginTop = '0px';
         subscriptionItem.style.height = '90px';
+
+        console.log(`Original valor: ${subscription.valor}, Type: ${typeof subscription.valor}`);
+
+        const valor = parseFloat(subscription.valor);
+        console.log(`Parsed valor: ${valor}, Type: ${typeof valor}`);
 
         subscriptionItem.innerHTML = `
           <div class="col-2">
@@ -1308,7 +1323,7 @@ async function displayUserSubscriptions(userId) {
             <p class="subtext">Pag. automático a <span class="green">${convertDateFormat(subscription.dataPagamento)}</span></p>
           </div>
           <div class="col-2">
-            <p class="valors">${subscription.valor}€</p>
+            <p class="valors">${isNaN(valor) ? 'Invalid value' : valor.toFixed(2)}€</p>
           </div>
         `;
 
