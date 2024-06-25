@@ -435,7 +435,7 @@ async function handleDeleteUser(userId) {
 }
 
 //despesas
-if (window.location.pathname === '/html/gerir ' || window.location.pathname === '/html/home ') {
+if (window.location.pathname === './/gerir ' || window.location.pathname === './/home ') {
   document.addEventListener('DOMContentLoaded', async () => {
     const expenseList = document.getElementById('expense-list');
     const totalExpensesElement = document.getElementById("total-expenses");
@@ -450,32 +450,32 @@ if (window.location.pathname === '/html/gerir ' || window.location.pathname === 
         }, 100);
       });
 
-      if (window.location.pathname === '/html/gerir ') {
+      if (window.location.pathname === './/gerir ') {
         const saidasButton = document.getElementById('saidas');
         const entradasButton = document.getElementById('entradas');
     
           saidasButton.addEventListener('click', () => {
             saidasButton.classList.add('selected');
             entradasButton.classList.remove('selected');
-            window.location.href = "/html/gerir ";
+            window.location.href = ".//gerir ";
           });
     
           entradasButton.addEventListener('click', () => {
             entradasButton.classList.add('selected');
             saidasButton.classList.remove('selected');
-            window.location.href = "/html/gerir-2 ";
+            window.location.href = ".//gerir-2 ";
           });
         };
     
       const expenses = await getUserExpenses(currentUserID);
       expenses.sort((a, b) => new Date(b.data) - new Date(a.data));
-      const displayExpenses = (window.location.pathname.includes('/html/home ')) ? expenses.slice(0, 2) : expenses;
+      const displayExpenses = (window.location.pathname.includes('.//home ')) ? expenses.slice(0, 2) : expenses;
   
       displayExpenses.forEach(expense => {
         const expenseItem = document.createElement('div');
         expenseItem.classList.add('expense-item');
   
-        if (window.location.pathname === '/html/gerir ') {
+        if (window.location.pathname === './/gerir ') {
           const dateP = document.createElement('p');
           dateP.classList.add('date');
           dateP.textContent = expense.data;
@@ -619,9 +619,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (userDoc.exists()) {
           const userData = userDoc.data();
           if (userData.role === 'admin') {
-            window.location.href = "/html/account ";
+            window.location.href = ".//account ";
           } else {
-            window.location.href = "/html/home ";
+            window.location.href = ".//home ";
           }
         }
       } catch (error) {
@@ -635,7 +635,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 //logout
-if (window.location.pathname === '/html/account ') {
+if (window.location.pathname === './/account ') {
   document.addEventListener('DOMContentLoaded', () => {
     const logoutButton = document.getElementById('logout');
     if (logoutButton) {
@@ -644,7 +644,7 @@ if (window.location.pathname === '/html/account ') {
           await signOut(auth);
           localStorage.removeItem('userData');
           alert("Logout feito!");
-          window.location.href = "/html/index ";
+          window.location.href = ".//index ";
         } catch (error) {
           console.error(error);
           alert("Erro ao dar log out. Tenta outra vez!");
@@ -668,7 +668,7 @@ async function createAccount(email, password, name, profilePic, role = 'user') {
     await createOrUpdateUser(userId, email, name, 0, 0, profilePicUrl, role);
     
     alert("Conta criada com sucesso!");
-    window.location.href = "/html/home ";
+    window.location.href = ".//home ";
     
     return user;
   } catch (error) {
@@ -697,7 +697,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           try {
               const user = await createAccount(email, password, name, profilePic);
-              window.location.href = "/html/home ";
+              window.location.href = ".//home ";
           } catch (error) {
               console.error("Error creating account:", error.message);
               emailField.classList.add('error');
@@ -711,7 +711,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 //adicionar despesa
-if (window.location.pathname.includes('/html/add-expense ')) {
+if (window.location.pathname.includes('.//add-expense ')) {
   document.addEventListener('DOMContentLoaded', () => {
     const iconInputs = document.querySelectorAll('.icon-input input[type="radio"]');
     iconInputs.forEach(input => {
@@ -737,11 +737,11 @@ if (window.location.pathname.includes('/html/add-expense ')) {
         if (currentUserID) {
           await addExpense(currentUserID, categoria, valor, data, nome);
           alert("Despesa adicionada com sucesso!");
-          window.location.href = "/html/gerir ";
+          window.location.href = ".//gerir ";
         } else {
           console.error("LOGGGGG INNNN");
           alert("Erro ao adicionar despesa. Por favor entre na tua cotna.");
-          window.location.href = "/html/index ";
+          window.location.href = ".//index ";
         }
       } catch (error) {
         console.error(error);
@@ -752,7 +752,7 @@ if (window.location.pathname.includes('/html/add-expense ')) {
 }
 
 //definir saldo
-if (window.location.pathname === '/html/changebalance ') {
+if (window.location.pathname === './/changebalance ') {
   document.addEventListener('DOMContentLoaded', () => {
     const updateSaldoBtn = document.getElementById('update-saldo-btn');
     const saldoTotalInput = document.getElementById('saldo-total-input');
@@ -777,7 +777,7 @@ if (window.location.pathname === '/html/changebalance ') {
           }
 
           alert("Saldo total atualizado!");
-          window.location.href = "/html/home "
+          window.location.href = ".//home "
         } else {
           console.error("No user is logged in.");
           alert("No user is currently logged in.");
@@ -801,7 +801,7 @@ async function displayUserGoals(currentUserID) {
   try {
     const goals = await getUserGoals(currentUserID);
 
-    if (window.location.pathname === '/html/home ') {
+    if (window.location.pathname === './/home ') {
       const firstGoal = goals[0];
 
       if (firstGoal) {
@@ -834,7 +834,7 @@ async function displayUserGoals(currentUserID) {
       } else {
         goalsContainer.innerHTML = '<p style="text-align: center;">Adiciona objetivos</p>';
       }
-    } else if (window.location.pathname === '/html/savings ') {
+    } else if (window.location.pathname === './/savings ') {
       let goalsHtml = '';
 
       goals.forEach(goal => {
@@ -873,7 +873,7 @@ async function displayUserGoals(currentUserID) {
 
 
 //adicionar poupanças/objet
-if (window.location.pathname === '/html/addsavings ') {
+if (window.location.pathname === './/addsavings ') {
 document.addEventListener('DOMContentLoaded', () => {
   const addGoalForm = document.getElementById('add-goal-form');
   addGoalForm.addEventListener('submit', async (event) => {
@@ -896,7 +896,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         await addGoal(currentUserID, goalName, goalTarget, goalCurrent, imageUrl);
         alert("Objetivo adicionado com sucesso!");
-        window.location.href = "/html/savings ";
+        window.location.href = ".//savings ";
       } else {
         console.error("No user is logged in.");
         alert("Nenhum utilizador logged in.");
@@ -910,7 +910,7 @@ document.addEventListener('DOMContentLoaded', () => {
 }
 
 //subscriptions
-if (window.location.pathname === '/html/add-subscription ') {
+if (window.location.pathname === './/add-subscription ') {
 document.addEventListener('DOMContentLoaded', () => {
   const addSubscriptionForm = document.getElementById('add-subscription-form');
   addSubscriptionForm.addEventListener('submit', async (event) => {
@@ -933,7 +933,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         await addSubscription(currentUserID, subscriptionName, subscriptionValue, subscriptionDate, imageUrl);
         alert("Subscrição adicionada com sucesso!");
-        window.location.href = "/html/subscriptions ";
+        window.location.href = ".//subscriptions ";
       } else {
         console.error("No user is logged in.");
         alert("Nenhum utilizador logado.");
@@ -947,7 +947,7 @@ document.addEventListener('DOMContentLoaded', () => {
 }
 
 //adicionar entrada
-if (window.location.pathname.includes('/html/add-income ')) {
+if (window.location.pathname.includes('.//add-income ')) {
   document.addEventListener('DOMContentLoaded', () => {
     const iconInputs = document.querySelectorAll('.icon-input input[type="radio"]');
     iconInputs.forEach(input => {
@@ -973,11 +973,11 @@ if (window.location.pathname.includes('/html/add-income ')) {
         if (currentUserID) {
           await addIncome(currentUserID, categoria, valor, data, nome);
           alert("Despesa adicionada com sucesso!");
-          window.location.href = "/html/gerir-2 ";
+          window.location.href = ".//gerir-2 ";
         } else {
           console.error("LOGGGGG INNNN");
           alert("Erro ao adicionar despesa. Por favor entre na tua cotna.");
-          window.location.href = "/html/index ";
+          window.location.href = ".//index ";
         }
       } catch (error) {
         console.error(error);
@@ -989,7 +989,7 @@ if (window.location.pathname.includes('/html/add-income ')) {
 
 
 // entradas
-if (window.location.pathname === '/html/gerir-2 ') {
+if (window.location.pathname === './/gerir-2 ') {
   document.addEventListener('DOMContentLoaded', async () => {
     const incomeList = document.getElementById('income-list');
     const totalIncomeElement = document.getElementById("total-income");
@@ -1004,20 +1004,20 @@ if (window.location.pathname === '/html/gerir-2 ') {
         }, 100);
       });
 
-      if (window.location.pathname === '/html/gerir-2 ') {
+      if (window.location.pathname === './/gerir-2 ') {
         const saidasButton = document.getElementById('saidas');
         const entradasButton = document.getElementById('entradas');
     
           saidasButton.addEventListener('click', () => {
             saidasButton.classList.remove('selected');
             entradasButton.classList.add('selected');
-            window.location.href = "/html/gerir ";
+            window.location.href = ".//gerir ";
           });
     
           entradasButton.addEventListener('click', () => {
             entradasButton.classList.add('selected');
             saidasButton.classList.remove('selected');
-            window.location.href = "/html/gerir-2 ";
+            window.location.href = ".//gerir-2 ";
           });
         };
     
@@ -1029,7 +1029,7 @@ if (window.location.pathname === '/html/gerir-2 ') {
         const entriesItem = document.createElement('div');
         entriesItem.classList.add('entries-item');
   
-        if (window.location.pathname === '/html/gerir-2 ') {
+        if (window.location.pathname === './/gerir-2 ') {
           const dateP = document.createElement('p');
           dateP.classList.add('date');
           dateP.textContent = entries.data;
@@ -1203,7 +1203,7 @@ async function updateBudget(userId, valor) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  if (window.location.pathname === '/html/budget ') {
+  if (window.location.pathname === './/budget ') {
     displayUserBudget(currentUserID);
 
     document.getElementById('update-budget-btn').addEventListener('click', () => {
@@ -1274,7 +1274,7 @@ function describeArc(x, y, radius, startAngle, endAngle) {
 
 //subscriptions
 async function displayUserSubscriptions(userId) {
-  if (window.location.pathname === '/html/subscriptions ') {
+  if (window.location.pathname === './/subscriptions ') {
     try {
       const subscriptions = await getUserSubscriptions(userId);
       const subscriptionsContainer = document.getElementById('subscriptions-container');
