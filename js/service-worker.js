@@ -21,7 +21,7 @@ const STATIC_ASSETS = [
   "/html/signup.html",
   "/html/subscriptions.html",
   "/html/updateuser.html",
-  "js/app.js",
+  "/js/app.js",
   "/css/styles.css",
   OFFLINE_URL
 ];
