@@ -1,27 +1,28 @@
 const CACHE_STATIC_NAME = "static-v1";
 const CACHE_DYNAMIC_NAME = "dynamic-v1";
-const OFFLINE_URL = "/offline.html";
+const OFFLINE_URL = "/html/offline.html";
 
 const STATIC_ASSETS = [
-  "/index.html",
-  "/account.html",
-  "/add-expense.html",
-  "/add-income.html",
-  "/add-subscription.html",
-  "/addsavings.html",
-  "/admin-db.html",
-  "/budget.html",
-  "/changebalance.html",
-  "/gerir-2.html",
-  "/gerir.html",
-  "/home.html",
-  "/login.html",
-  "/parati.html",
-  "/savings.html",
-  "/signup.html",
-  "/subscriptions.html",
-  "/updateuser.html",
-  "/app.js",
+  "/html/index.html",
+  "/html/account.html",
+  "/html/add-expense.html",
+  "/html/add-income.html",
+  "/html/add-subscription.html",
+  "/html/addsavings.html",
+  "/html/admin-db.html",
+  "/html/budget.html",
+  "/html/changebalance.html",
+  "/html/gerir-2.html",
+  "/html/gerir.html",
+  "/html/home.html",
+  "/html/login.html",
+  "/html/parati.html",
+  "/html/savings.html",
+  "/html/signup.html",
+  "/html/subscriptions.html",
+  "/html/updateuser.html",
+  "js/app.js",
+  "/css/styles.css",
   OFFLINE_URL
 ];
 
